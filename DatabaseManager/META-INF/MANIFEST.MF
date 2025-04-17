@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: ojdbc11-23.3.0.23.09.jar
+

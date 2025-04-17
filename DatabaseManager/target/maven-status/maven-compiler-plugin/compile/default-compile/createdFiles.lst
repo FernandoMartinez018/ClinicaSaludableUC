@@ -1,0 +1,8 @@
+com\gerleinco\databasemanager\QueryManager.class
+com\gerleinco\databasemanager\exceptions\DatabaseQueryException.class
+com\gerleinco\databasemanager\QueryBuilder.class
+com\gerleinco\databasemanager\util\ObjectsApplication$ObjectsApplicationHolder.class
+com\gerleinco\databasemanager\ConnectManager.class
+com\gerleinco\databasemanager\exceptions\SqlConnection.class
+com\gerleinco\databasemanager\ConnectManagerImpl.class
+com\gerleinco\databasemanager\util\ObjectsApplication.class

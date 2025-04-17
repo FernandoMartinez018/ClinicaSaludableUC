@@ -1,0 +1,6 @@
+# Reglas de Git Ignore
+/dist/
+LectorCorreoRadicacion.jar
+*.log.*
+/nbproject/private/
+/build/
