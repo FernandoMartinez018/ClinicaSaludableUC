@@ -18,13 +18,13 @@ public class PacientesController {
     public PacientesController(PacientesService pacientesService) {this.pacientesService = pacientesService;}
 
     @GetMapping("lista-pacientes")
-    public ResponseEntity<PacientesListRows> getPacientes(Paciente paciente) {
+    public ResponseEntity<PacientesListRows> getPacientes(@RequestBody Paciente paciente) {
         return ResponseEntity.ok(pacientesService.getListPacientes(paciente));
     }
 
-    @PostMapping("crear-medico")
+    @PostMapping("crear-paciente")
     public ResponseEntity<?> createPaciente(@Valid @RequestBody Paciente paciente) {
-        return ResponseEntity.ok(pacientesService.InsertPaciente(paciente)); //me retorna un boleano
+        return ResponseEntity.ok(pacientesService.InsertPaciente(paciente));
     }
 
     @PutMapping("actualizar-paciente/{id_paciente}")

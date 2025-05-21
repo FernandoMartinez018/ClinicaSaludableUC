@@ -17,7 +17,7 @@ public class CitasMedicasController {
     public CitasMedicasController(CitasMedicasService citasMedicasService) {this.citasMedicasService = citasMedicasService;}
 
     @GetMapping("lista-citas-medicas")
-    public ResponseEntity<CitaMedicaListRows> getCitasMedicas(CitaMedica citaMedica) {
+    public ResponseEntity<CitaMedicaListRows> getCitasMedicas(@RequestBody CitaMedica citaMedica) {
         return ResponseEntity.ok(citasMedicasService.getListCitasMedicas(citaMedica));
     }
 

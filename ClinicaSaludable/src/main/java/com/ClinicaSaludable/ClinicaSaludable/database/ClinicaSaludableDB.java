@@ -22,8 +22,8 @@ public class ClinicaSaludableDB  extends ConnectManagerImpl {
      * necesarios (usuario, contraseña, URL de conexión) obtenidos del archivo de configuración XML.
      */
     public ClinicaSaludableDB() {
-        super(getUser(), getPassword(), getUrl());    //PARA LOCAL
-//        super("root", "ClinicaSaludableIS2", "jdbc:mysql://clinicasaludable.cd8mg6qw2k00.us-east-2.rds.amazonaws.com:3306/clinica_saludable");          //PARA NUBE
+//        super(getUser(), getPassword(), getUrl());    //PARA LOCAL
+        super("root", "ClinicaSaludableIS2", "jdbc:mysql://clinicasaludable.cd8mg6qw2k00.us-east-2.rds.amazonaws.com:3306/clinica_saludable");          //PARA NUBE
     }
 
     /**

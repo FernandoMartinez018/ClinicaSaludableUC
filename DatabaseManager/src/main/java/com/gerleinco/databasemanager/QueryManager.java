@@ -64,19 +64,19 @@ public class QueryManager {
 //                    System.out.println("Versión del driver: " + conn.getMetaData().getDriverVersion());
 //                    System.out.println("URL de conexión: " + conn.getMetaData().getURL());
 //                    System.out.println("Usuario conectado: " + conn.getMetaData().getUserName());
-                    if (!VerificarColumnaTabla(sTABLABD, sLlave)) {
-                        continue;
-                    }
+//                    if (!VerificarColumnaTabla(sTABLABD, sLlave)) {
+//                        continue;
+//                    }
                     if (!sLlave.equalsIgnoreCase("TABLABD")) {
                         Object oVal = meObj.getValue();
                         if (oVal != null) {
                             sSQL += sLlave + ", ";
                             String sClase = oVal.getClass().getCanonicalName().toUpperCase();
-                            if (sClase.contains("DATE") || sClase.contains("TIME")) {
-                                sVals += "TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS'), ";
-                                aoVals[i] = sdfFecha.format(oVal);
-                                i++;
-                            } else {
+//                            if ((sClase.contains("DATE") || sClase.contains("TIME")) && !VerificarColumnaTabla(sTABLABD, sLlave)){
+//                                sVals += "TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS'), ";
+//                                aoVals[i] = sdfFecha.format(oVal);
+//                                i++;
+//                            } else {
                                 if (oVal.toString().indexOf("XDIRECTOX") == 0) {
                                     sVals += oVal.toString().replace("XDIRECTOX", "") + ", ";
                                 } else if (oVal.toString().indexOf("SYSDATE") == 0) {
@@ -86,7 +86,7 @@ public class QueryManager {
                                     aoVals[i] = oVal;
                                     i++;
                                 }
-                            }
+//                            }
                         }
                     }
                 }
@@ -107,9 +107,9 @@ public class QueryManager {
                     }
                     if (!sLlave.equalsIgnoreCase("TABLABD")) {
                         if (!sLlave.equalsIgnoreCase("WHEREBD")) {
-                            if (!VerificarColumnaTabla(sTABLABD, sLlave)) {
-                                continue;
-                            }
+//                            if (!VerificarColumnaTabla(sTABLABD, sLlave)) {
+//                                continue;
+//                            }
 
                             Object oVal = meObj.getValue();
                             if (oVal != null) {
@@ -118,11 +118,11 @@ public class QueryManager {
 
                                 String sClase = oVal.getClass().getCanonicalName().toUpperCase();
 
-                                if (sClase.contains("DATE") || sClase.contains("TIME")) {
-                                    sSQL += "TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS')";
-                                    aoVals[i] = sdfFecha.format(oVal);
-                                    i++;
-                                } else {
+//                                if ((sClase.contains("DATE") || sClase.contains("TIME")) && !VerificarColumnaTabla(sTABLABD, sLlave)) {
+//                                    sSQL += "TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS')";
+//                                    aoVals[i] = sdfFecha.format(oVal);
+//                                    i++;
+//                                } else {
                                     Object oValOp = oVal;
                                     if (oVal.toString().indexOf("XDIRECTOX") == 0) {
                                         sSQL += oVal.toString().replace("XDIRECTOX", "");
@@ -134,7 +134,7 @@ public class QueryManager {
                                         sSQLPuro += aoVals[i];
                                         i++;
                                     }
-                                }
+//                                }
                                 sSQL += ", ";
                                 sSQLPuro += "::" + sClase + ", \n";
                             }/*else{
@@ -160,12 +160,12 @@ public class QueryManager {
                                     Object oVal = meObjW.getValue();
                                     if (oVal != null) {
                                         String sClase = oVal.getClass().getCanonicalName().toUpperCase();
-                                        if (sClase.contains("DATE") || sClase.contains("TIME")) {
-                                            sWhere += " = TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS') ";
-                                            aoValsWh[iWh] = sdfFecha.format(oVal);
-                                            sWherePuro += " = TO_DATE(" + aoVals[i] + ", 'DD/MM/YYYY HH24:MI:SS') ::" + sClase;
-                                            iWh++;
-                                        } else {
+//                                        if ((sClase.contains("DATE") || sClase.contains("TIME")) && !VerificarColumnaTabla(sTABLABD, sLlave)) {
+//                                            sWhere += " = TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS') ";
+//                                            aoValsWh[iWh] = sdfFecha.format(oVal);
+//                                            sWherePuro += " = TO_DATE(" + aoVals[i] + ", 'DD/MM/YYYY HH24:MI:SS') ::" + sClase;
+//                                            iWh++;
+//                                        } else {
                                             if (oVal.toString().indexOf("XDIRECTOX") == 0) {
                                                 sWhere += " = " + oVal.toString().replace("XDIRECTOX", "");
                                             } else if (oVal.toString().indexOf("SYSDATE") == 0) {
@@ -176,7 +176,7 @@ public class QueryManager {
                                                 iWh++;
                                             }
                                             sWherePuro += " = " + aoVals[i] + "::" + sClase;
-                                        }
+//                                        }
                                     } else {
                                         sWhere += " is null ";
                                         sWherePuro += " is null ";
@@ -214,11 +214,11 @@ public class QueryManager {
                         Object oVal = meObjW.getValue();
                         if (oVal != null) {
                             String sClase = oVal.getClass().getCanonicalName().toUpperCase();
-                            if (sClase.contains("DATE") || sClase.contains("TIME")) {
-                                sWhere += " = TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS') ";
-                                aoVals[i] = sdfFecha.format(oVal);
-                                i++;
-                            } else {
+//                            if ((sClase.contains("DATE") || sClase.contains("TIME")) && !VerificarColumnaTabla(sTABLABD, sLlave)) {
+//                                sWhere += " = TO_DATE(?, 'DD/MM/YYYY HH24:MI:SS') ";
+//                                aoVals[i] = sdfFecha.format(oVal);
+//                                i++;
+//                            } else {
                                 Object oValOp = oVal;
                                 if (oVal.toString().indexOf("XDIRECTOX") == 0) {
                                     sWhere += " = " + oVal.toString().replace("XDIRECTOX", "");
@@ -229,7 +229,7 @@ public class QueryManager {
                                     aoVals[i] = oValOp;
                                     i++;
                                 }
-                            }
+//                            }
                         } else {
                             sWhere += " is null ";
                         }
@@ -278,7 +278,8 @@ public class QueryManager {
             lhmpEntidad.put("REGISTROS", sRet);
         } catch (Exception e) {
 
-            lhmpEntidad.put("ERROR", "Ocurrio un error procesando su solicitud. Por favor comuniquese con el Administrador del sistema");
+            lhmpEntidad.put("ERROR_MAIN", "Ocurrio un error procesando su solicitud. Por favor comuniquese con el Administrador del sistema");
+            lhmpEntidad.put("ERROR",e);
             throw new DatabaseQueryException("Error al cerrar ResultSet", e);
         }
         return lhmpEntidad;
@@ -330,8 +331,8 @@ public class QueryManager {
                 break;
             } catch (Exception eError) {
 
-                sRetorno = "ERROR: Ocurrio un error procesando su solicitud. Por favor comuniquese con el Administrador del sistema";
-
+              //  sRetorno = "ERROR: Ocurrio un error procesando su solicitud. Por favor comuniquese con el Administrador del sistema";
+                  sRetorno = "ERROR: "+eError.toString();
                 try {
                     Thread.sleep(500);
                 } catch (Exception eLoc) {
@@ -568,7 +569,7 @@ public class QueryManager {
                 sSQL += " ORDER BY " + lhmCriterios.get("ORDERBY");
             }
 
-            System.out.println("datos del query: " + sSQL);
+         //   System.out.println("datos del query: " + sSQL);
 
             pstDatos = estbConexion.getCnnApp().prepareStatement(sSQL);
 
@@ -778,70 +779,4 @@ public class QueryManager {
         return llsLhmRet;
     }
 
-    public String ColumnasTabla(String sTabla, String sPrefijo) {
-        StringBuilder sblRet;
-        sblRet = new StringBuilder();
-        try {
-            if (!ObjectsApplication.getInstance().getHmpColumnasSelect().containsKey(sTabla)) {
-                LlenarColumnasTabla(sTabla, sPrefijo);
-            }
-            sblRet.append(ObjectsApplication.getInstance().getHmpColumnasSelect().get(sTabla).replace("<PRE>", sPrefijo));
-        } catch (Exception eError) {
-
-            sblRet.append("ERROR").append(eError.getLocalizedMessage());
-        }
-        return sblRet.toString();
-    }
-
-    public boolean VerificarColumnaTabla(String sTabla, String sColumna) throws Exception {
-        Connection conn = estbConexion.getCnnApp();
-
-        if(conn.getMetaData().getDriverName().contains("MySQL")){
-            return true;
-        }
-        boolean bRet;
-        if (!ObjectsApplication.getInstance().getHmpColumnasSelect().containsKey(sTabla)) {
-            LlenarColumnasTabla(sTabla, "<PRE>");
-        }
-        String sColumnasTabla = ObjectsApplication.getInstance().getHmpColumnasSelect().get(sTabla) + ",";
-        bRet = sColumnasTabla.toUpperCase().contains("." + sColumna + ",");
-        return bRet;
-    }
-
-    public void LlenarColumnasTabla(String sTabla, String sPrefijo) throws Exception {
-        LinkedHashMap<String, Object> lhmCriteriosConsulta;
-        lhmCriteriosConsulta = new LinkedHashMap<>();
-
-        StringBuilder sblCAMPOSBD;
-        sblCAMPOSBD = new StringBuilder("OWNER, TABLE_NAME, COLUMN_NAME, DATA_TYPE, DATA_TYPE_MOD, DATA_TYPE_OWNER, DATA_LENGTH, DATA_PRECISION, DATA_SCALE, NULLABLE, COLUMN_ID, DEFAULT_LENGTH, DATA_DEFAULT, NUM_DISTINCT, LOW_VALUE, HIGH_VALUE, DENSITY, NUM_NULLS, NUM_BUCKETS, LAST_ANALYZED, SAMPLE_SIZE, CHARACTER_SET_NAME, CHAR_COL_DECL_LENGTH, GLOBAL_STATS, USER_STATS, AVG_COL_LEN, CHAR_LENGTH, CHAR_USED, V80_FMT_IMAGE, DATA_UPGRADED, HISTOGRAM, DEFAULT_ON_NULL, IDENTITY_COLUMN, EVALUATION_EDITION, UNUSABLE_BEFORE, UNUSABLE_BEGINNING, COLLATION");
-        lhmCriteriosConsulta.put("CAMPOSBD", sblCAMPOSBD.toString());
-
-        StringBuilder sblTABLASBD;
-        sblTABLASBD = new StringBuilder("ALL_TAB_COLUMNS");
-        lhmCriteriosConsulta.put("TABLASBD", sblTABLASBD.toString());
-
-        StringBuilder sblWHEREBD;
-        LinkedHashMap<Integer, Object> hmpWHEREBD;
-
-        sblWHEREBD = new StringBuilder();
-        hmpWHEREBD = new LinkedHashMap<>();
-
-        sblWHEREBD.append(" TABLE_NAME = ? \n");
-        hmpWHEREBD.put(1, sTabla);
-
-        lhmCriteriosConsulta.put("WHEREBD", sblWHEREBD.toString());
-        lhmCriteriosConsulta.put("WHEREBD_HM", hmpWHEREBD);
-
-        LinkedList<LinkedHashMap<String, Object>> llsLhmColumnas;
-        llsLhmColumnas = Consultar(lhmCriteriosConsulta);
-
-        if (llsLhmColumnas == null) {
-            throw new Exception("Al consultar las columnas de la tabla:" + sTabla);
-        }
-        if (llsLhmColumnas.isEmpty()) {
-            throw new Exception("Las columnas de la tabla " + sTabla + " estan vacias");
-        }
-
-        ObjectsApplication.getInstance().AgregarColumnas(sTabla, sPrefijo, llsLhmColumnas);
-    }
 }

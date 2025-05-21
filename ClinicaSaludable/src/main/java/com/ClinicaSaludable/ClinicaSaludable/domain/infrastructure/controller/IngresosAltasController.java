@@ -17,7 +17,7 @@ public class IngresosAltasController {
     public IngresosAltasController(IngresosAltasService ingresosAltasService) {this.ingresosAltasService = ingresosAltasService;}
 
     @GetMapping("lista-ingresos-altas")
-    public ResponseEntity<IngresosAltasListRows> getIngresosAltas(IngresosAltas ingresosAltas) {
+    public ResponseEntity<IngresosAltasListRows> getIngresosAltas(@RequestBody IngresosAltas ingresosAltas) {
         return ResponseEntity.ok(ingresosAltasService.getListIngresosAltas(ingresosAltas));
     }
 

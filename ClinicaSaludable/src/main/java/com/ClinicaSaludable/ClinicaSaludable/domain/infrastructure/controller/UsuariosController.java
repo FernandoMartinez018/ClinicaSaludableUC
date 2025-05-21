@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.NoSuchAlgorithmException;
+
 @Controller
 @RequestMapping("usuarios")
 public class UsuariosController {
@@ -16,12 +18,12 @@ public class UsuariosController {
     public UsuariosController(UsuariosService usuariosService) {this.usuariosService = usuariosService;}
 
 //    @GetMapping("lista-medicos")
-//    public ResponseEntity<MedicosListRows> getMedicos(Medico medico) {
+//    public ResponseEntity<MedicosListRows> getMedicos(@RequestBody Medico medico) {
 //        return ResponseEntity.ok(medicosService.getListMedicos(medico));
 //    }
 
     @PostMapping("crear-usuario")
-    public ResponseEntity<?> createUsuario(@Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<?> createUsuario(@Valid @RequestBody Usuario usuario) throws NoSuchAlgorithmException {
         return ResponseEntity.ok(usuariosService.InsertUsuario(usuario)); //me retorna un boleano
     }
 
@@ -32,5 +34,9 @@ public class UsuariosController {
     @GetMapping("obtener-usuario-id")
     public ResponseEntity<Usuario> getUsuarioById(@RequestParam Integer id_usuario) {
         return ResponseEntity.ok(usuariosService.getUsuarioById(id_usuario));
+    }
+    @GetMapping("validar-usuario")
+    public ResponseEntity<?> validarUsuario(@RequestParam String email, @RequestParam String password) throws NoSuchAlgorithmException {
+        return ResponseEntity.ok(usuariosService.validarUsuario(email, password));
     }
 }

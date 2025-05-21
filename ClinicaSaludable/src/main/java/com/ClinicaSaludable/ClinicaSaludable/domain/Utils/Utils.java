@@ -12,7 +12,7 @@ public class Utils {
         if (record != null) {
             for (RecordComponent component : record.getClass().getRecordComponents()) {
                 try {
-                    map.put(component.getName(), component.getAccessor().invoke(record));
+                    map.put(component.getName().toUpperCase(), component.getAccessor().invoke(record));
                 } catch (Exception e) {
                     throw new RuntimeException("Error al convertir record a Map", e);
                 }

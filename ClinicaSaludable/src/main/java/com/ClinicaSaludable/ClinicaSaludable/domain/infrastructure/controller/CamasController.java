@@ -15,7 +15,7 @@ public class CamasController {
     public CamasController(CamasService camasService) {this.camasService = camasService;}
 
     @GetMapping("lista-camas")
-    public ResponseEntity<CamasListRows> getCamas(Cama cama) {
+    public ResponseEntity<CamasListRows> getCamas(@RequestBody Cama cama) {
         return ResponseEntity.ok(camasService.getListCamas(cama));
     }
 

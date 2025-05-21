@@ -5,7 +5,7 @@ import com.ClinicaSaludable.ClinicaSaludable.domain.model.CamasListRows;
 
 public interface CamasService {
     CamasListRows getListCamas(Cama cama);
-    Boolean InsertCama(Cama cama);
-    Boolean UpdateCama(Integer id_cama,Cama cama);
+    Object InsertCama(Cama cama);
+    Object UpdateCama(Integer id_cama,Cama cama);
     Cama getCamaById(Integer id_cama);
 }

@@ -5,7 +5,7 @@ import com.ClinicaSaludable.ClinicaSaludable.domain.model.IngresosAltasListRows;
 
 public interface IngresosAltasService {
     IngresosAltasListRows getListIngresosAltas(IngresosAltas ingresosAltas);
-    Boolean InsertIngresoAltas(IngresosAltas ingresosAltas);
-    Boolean UpdateIngresoAltas(Integer id_ingreso_altas,IngresosAltas ingresosAltas);
+    Object InsertIngresoAltas(IngresosAltas ingresosAltas);
+    Object UpdateIngresoAltas(Integer id_ingreso_altas,IngresosAltas ingresosAltas);
     IngresosAltas getIngresoAltasById(Integer id_ingreso_altas);
 }

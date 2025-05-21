@@ -5,7 +5,7 @@ import com.ClinicaSaludable.ClinicaSaludable.domain.model.HistoriaClinicaListRow
 
 public interface HistoriaClinicaService {
     HistoriaClinicaListRows getListHistoriaClinicas(HistoriaClinica historiaClinica);
-    Boolean InsertHistoriaClinica(HistoriaClinica historiaClinica);
-    Boolean UpdateHistoriaClinica(Integer id_historia_clinica,HistoriaClinica historiaClinica);
+    Object InsertHistoriaClinica(HistoriaClinica historiaClinica);
+    Object UpdateHistoriaClinica(Integer id_historia_clinica,HistoriaClinica historiaClinica);
     HistoriaClinica getHistoriaClinicaById(Integer id_historia_clinica);
 }

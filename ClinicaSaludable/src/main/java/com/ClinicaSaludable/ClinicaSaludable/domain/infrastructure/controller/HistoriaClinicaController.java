@@ -15,7 +15,7 @@ public class HistoriaClinicaController {
     public HistoriaClinicaController(HistoriaClinicaService historiaClinicaService) {this.historiaClinicaService = historiaClinicaService;}
 
     @GetMapping("lista-historia-clinica")
-    public ResponseEntity<HistoriaClinicaListRows> getHistoriaClinica(HistoriaClinica historiaClinica) {
+    public ResponseEntity<HistoriaClinicaListRows> getHistoriaClinica(@RequestBody HistoriaClinica historiaClinica) {
         return ResponseEntity.ok(historiaClinicaService.getListHistoriaClinicas(historiaClinica));
     }
 

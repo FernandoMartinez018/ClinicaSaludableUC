@@ -12,7 +12,7 @@ public record IngresosAltas(
         Integer camas_fk,
         @NotNull(message = "el campo fecha_ingreso no puede ser nulo")
         LocalDateTime fecha_ingreso,
-        Integer fecha_alta,
+        LocalDateTime fecha_alta,
         LocalDateTime fecha_insercion,
         String usuario_insercion,
         LocalDateTime fecha_modificacion,

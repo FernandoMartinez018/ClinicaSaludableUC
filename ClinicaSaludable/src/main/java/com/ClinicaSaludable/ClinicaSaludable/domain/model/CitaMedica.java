@@ -10,7 +10,9 @@ public record CitaMedica(
         Integer pacientes_fk,
         @NotNull(message = "el campo medico_fk no puede ser nulo")
         Integer medico_fk,
+        @NotNull(message = "el campo fecha_cita no puede ser nulo")
         LocalDateTime fecha_cita,
+        @NotNull(message = "el campo estado_cita no puede ser nulo")
         String estado_cita,
         LocalDateTime fecha_insercion,
         String usuario_insercion,

@@ -27,7 +27,7 @@ MedicosController(MedicosService medicosService) {
 }
 
     @GetMapping("lista-medicos")
-    public ResponseEntity<MedicosListRows> getMedicos(Medico medico) {
+    public ResponseEntity<MedicosListRows> getMedicos(@RequestBody Medico medico) {
         return ResponseEntity.ok(medicosService.getListMedicos(medico));
     }
 

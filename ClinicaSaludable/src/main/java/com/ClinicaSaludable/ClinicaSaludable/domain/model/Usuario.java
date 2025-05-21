@@ -10,8 +10,11 @@ public record Usuario(
         @NotNull(message = "el campo nombre no puede ser nulo")
         String nombre,
         @Email(message = "el email digitado no es válido")
+        @NotNull(message = "el campo email no puede ser nulo")
         String email,
+        @NotNull(message = "el campo password no puede ser nulo")
         String password,
+        @NotNull(message = "el campo rol no puede ser nulo")
         String rol,
         LocalDateTime fecha_insercion,
         String usuario_insercion,
